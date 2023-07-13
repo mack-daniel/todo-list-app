@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Delete from "../images/icon-cross.svg";
 
 const ListItem = ({
@@ -7,7 +7,6 @@ const ListItem = ({
   title,
   toggleTodo,
   darkMode,
-
   deleteTodo,
 }) => {
   return (

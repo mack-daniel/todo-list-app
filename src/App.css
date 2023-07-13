@@ -114,10 +114,6 @@ input[type="checkbox"]:checked {
 
 @media (max-width: 686px) {
   .content {
-    /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
     width: 80vw;
   }
 }

@@ -21,7 +21,6 @@ const Main = ({
   return (
     <div className={darkMode ? "card border-0 dark-bg" : "card border-0"}>
       <ul className="list-group list-group-flush">
-        {/* {todos.length === 0 && "No Todos"} */}
         {todos.filter(FILTER_MAP[filter]).map((todo, idx) => (
           <ListItem
             {...todo}
@@ -46,7 +45,6 @@ const Main = ({
           <div className="col-6">
             <div className="row">
               <button
-                // className={click ? "col active " : "col"}
                 className={`col ${darkMode && "light-text"} ${
                   activeButton === 1 ? "active" : ""
                 }`}
@@ -55,7 +53,6 @@ const Main = ({
                 All
               </button>
               <button
-                // className={darkMode ? "col light-text" : "col"}
                 className={`col ${darkMode && "light-text"} ${
                   activeButton === 2 ? "active" : ""
                 }`}
@@ -64,7 +61,6 @@ const Main = ({
                 Active
               </button>
               <button
-                // className={darkMode ? "col light-text" : "col"}
                 className={`col ${darkMode && "light-text"} ${
                   activeButton === 3 ? "active" : ""
                 }`}
