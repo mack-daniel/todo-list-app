@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import Delete from "../images/icon-cross.svg";
 
-const ListItem = ({ completed, id, title, toggleTodo, darkMode }) => {
+const ListItem = ({
+  completed,
+  id,
+  title,
+  toggleTodo,
+  darkMode,
+  hover,
+  setHover,
+  deleteTodo,
+}) => {
   return (
     <li
       className={
@@ -9,14 +19,21 @@ const ListItem = ({ completed, id, title, toggleTodo, darkMode }) => {
           : "list-group-item d-flex align-items-center justify-content-between light-bg border-1 py-3"
       }
     >
-      <div className="d-flex align-items-center gap-3">
-        <input
-          type="checkbox"
-          checked={completed}
-          onChange={(e) => toggleTodo(id, e.target.checked)}
-        />
+      <div className="d-flex align-items-center justify-content-between gap-3 w-100">
+        <div>
+          <input
+            type="checkbox"
+            checked={completed}
+            onChange={(e) => toggleTodo(id, e.target.checked)}
+          />
+          <span className={completed ? "completed-item ms-3" : "ms-3"}>
+            {title}
+          </span>
+        </div>
 
-        <span className={completed ? "title-item" : ""}>{title}</span>
+        <button onClick={() => deleteTodo(id)}>
+          <img src={Delete} alt="delete" />
+        </button>
       </div>
     </li>
   );

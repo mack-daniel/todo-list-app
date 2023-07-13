@@ -10,6 +10,7 @@ uuidv4();
 function App() {
   const [todos, setTodos] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
+  const [filter, setFilter] = useState("All");
 
   const onSubmit = (title) => {
     setTodos((currentTodos) => {
@@ -30,6 +31,25 @@ function App() {
       });
     });
   };
+
+  const deleteTodo = (id) => {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((item) => item.id !== id);
+    });
+  };
+
+  const allTodos = (name) => {
+    setFilter(name);
+  };
+
+  const activeTodos = (name) => {
+    setFilter(name);
+  };
+
+  const completedTodos = (name) => {
+    setFilter(name);
+  };
+
   return (
     <main>
       <div className="top"></div>
@@ -37,8 +57,20 @@ function App() {
       <div className="content mb-3">
         <HeaderTitle darkMode={darkMode} setDarkMode={setDarkMode} />
         <InputItem darkMode={darkMode} onSubmit={onSubmit} />
-        <ListGroup todos={todos} toggleTodo={toggleTodo} darkMode={darkMode} />
-        <Footer todos={todos} />
+        <ListGroup
+          todos={todos}
+          toggleTodo={toggleTodo}
+          darkMode={darkMode}
+          deleteTodo={deleteTodo}
+          filter={filter}
+        />
+        <Footer
+          todos={todos}
+          darkMode={darkMode}
+          completedTodos={completedTodos}
+          activeTodos={activeTodos}
+          allTodos={allTodos}
+        />
       </div>
     </main>
   );

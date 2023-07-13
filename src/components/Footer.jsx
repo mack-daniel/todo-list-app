@@ -1,21 +1,27 @@
 import React from "react";
 
-const Footer = ({ todos }) => {
+const Footer = ({ todos, darkMode, allTodos, activeTodos, completedTodos }) => {
   return (
-    <footer class="container-fluid dark-bg rounded-bottom">
+    <footer class={darkMode ? "card dark-bg  " : "card "}>
       <div class="row gap-3 p-2">
-        <div class="col text-light">
-          <span>{todos.filter((item) => item.completed === false).length}</span>{" "}
+        <div class={darkMode ? "col text-light" : "col"}>
+          {/* <span>{todos.filter((item) => item.completed === false).length}</span>{" "} */}
           items left
         </div>
-        <div class="col text-light">
-          <div class="row">
-            <div class="col">All</div>
-            <div class="col">Active</div>
-            <div class="col">Completed</div>
+        <div class={darkMode ? "col text-light" : "col"}>
+          <div class="d-flex justify-content-between">
+            <button onClick={() => allTodos("All")}>All</button>
+            <button onClick={() => activeTodos("Active")}>Active</button>
+            <button onClick={() => completedTodos("Completed")}>
+              Completed
+            </button>
           </div>
         </div>
-        <div class="col text-light text-center">Clear Completed</div>
+        <div
+          class={darkMode ? "col text-light text-center" : "col text-center"}
+        >
+          Clear Completed
+        </div>
       </div>
     </footer>
   );
