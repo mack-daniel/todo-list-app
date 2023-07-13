@@ -11,6 +11,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [darkMode, setDarkMode] = useState(true);
   const [filter, setFilter] = useState("All");
+  const [activeButton, setActiveButton] = useState(1);
 
   const onSubmit = (title) => {
     setTodos((currentTodos) => {
@@ -38,16 +39,27 @@ function App() {
     });
   };
 
-  const allTodos = (name) => {
+  const allTodos = (name, btnId) => {
     setFilter(name);
+    setActiveButton(btnId);
   };
 
-  const activeTodos = (name) => {
+  const activeTodos = (name, btnId) => {
     setFilter(name);
+    setActiveButton(btnId);
   };
 
-  const completedTodos = (name) => {
+  const completedTodos = (name, btnId) => {
     setFilter(name);
+    setActiveButton(btnId);
+  };
+
+  const clearCompleted = () => {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        return { ...todo, completed: false };
+      });
+    });
   };
 
   return (
@@ -66,6 +78,8 @@ function App() {
           completedTodos={completedTodos}
           activeTodos={activeTodos}
           allTodos={allTodos}
+          clearCompleted={clearCompleted}
+          activeButton={activeButton}
         />
       </div>
     </main>

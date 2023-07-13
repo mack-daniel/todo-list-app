@@ -25,7 +25,7 @@ const ListItem = ({
             checked={completed}
             onChange={(e) => toggleTodo(id, e.target.checked)}
           />
-          <span className={completed ? "completed-item ms-3" : "ms-3"}>
+          <span className={completed ? "completed-item ms-3 " : "ms-3 light"}>
             {title}
           </span>
         </div>

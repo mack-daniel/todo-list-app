@@ -24,7 +24,7 @@ const InputItem = ({ onSubmit, darkMode }) => {
         }
       >
         <input type="checkbox" disabled />
-        <span id="status">
+        <span id="status" className={darkMode && "light-text"}>
           {newItem !== "" ? "Currently typing" : "Create a new todo..."}
         </span>
         <input
