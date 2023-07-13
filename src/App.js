@@ -2,9 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import HeaderTitle from "./components/HeaderTitle";
 import InputItem from "./components/InputItem";
-import ListGroup from "./components/ListGroup";
 import { v4 as uuidv4 } from "uuid";
-import Footer from "./components/Footer";
+import Main from "./components/Main";
+
 uuidv4();
 
 function App() {
@@ -57,16 +57,12 @@ function App() {
       <div className="content mb-3">
         <HeaderTitle darkMode={darkMode} setDarkMode={setDarkMode} />
         <InputItem darkMode={darkMode} onSubmit={onSubmit} />
-        <ListGroup
+        <Main
           todos={todos}
           toggleTodo={toggleTodo}
           darkMode={darkMode}
           deleteTodo={deleteTodo}
           filter={filter}
-        />
-        <Footer
-          todos={todos}
-          darkMode={darkMode}
           completedTodos={completedTodos}
           activeTodos={activeTodos}
           allTodos={allTodos}

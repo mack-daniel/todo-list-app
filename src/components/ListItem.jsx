@@ -7,8 +7,7 @@ const ListItem = ({
   title,
   toggleTodo,
   darkMode,
-  hover,
-  setHover,
+
   deleteTodo,
 }) => {
   return (
